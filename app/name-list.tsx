@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, FlatList, StyleSheet, TextInput } from "react-native";
-import { useRouter } from "expo-router"; // Import useRouter
-import NameCard from "../components/NameCard"; // Reusable name card component
-import RNPickerSelect from "react-native-picker-select"; // Import new picker
+import { useRouter } from "expo-router";
+import NameCard from "../components/NameCard";
+import { Picker } from "@react-native-picker/picker";
 
-// Import names data
 const namesData: {
   name: string;
   gender: string;
@@ -12,41 +11,42 @@ const namesData: {
 }[] = require("../data/names.json");
 
 export default function NameListScreen() {
-  const router = useRouter(); // Initialize useRouter hook
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedGender, setSelectedGender] = useState<string | null>("Any");
-  const [selectedOrigin, setSelectedOrigin] = useState<string | null>("Any");
+  const [selectedGender, setSelectedGender] = useState<string | null>(
+    "All Genders"
+  );
+  const [selectedOrigin, setSelectedOrigin] = useState<string | null>(
+    "All Origins"
+  );
   const [filteredNames, setFilteredNames] = useState<{ name: string }[]>([]);
 
-  // Extract unique genders and origins from namesData
   const genders: string[] = [
-    "Any",
+    "All Genders",
     ...new Set(namesData.map((item) => item.gender)),
   ];
   const origins: string[] = [
-    "Any",
+    "All Origins",
     ...new Set(namesData.map((item) => item.origin)),
   ];
 
   useEffect(() => {
-    // Filter names based on search query, gender, and origin
     const filterNames = namesData.filter((name) => {
       const matchesSearch = name.name
         .toLowerCase()
         .includes(searchQuery.toLowerCase());
+
       const matchesGender =
-        selectedGender && selectedGender !== "Any"
-          ? name.gender === selectedGender
-          : true;
+        selectedGender === "All Genders" || name.gender === selectedGender;
+
       const matchesOrigin =
-        selectedOrigin && selectedOrigin !== "Any"
-          ? name.origin === selectedOrigin
-          : true;
+        selectedOrigin === "All Origins" || name.origin === selectedOrigin;
+
       return matchesSearch && matchesGender && matchesOrigin;
     });
 
-    setFilteredNames(filterNames); // Update filtered names
-  }, [searchQuery, selectedGender, selectedOrigin]); // Re-run filter when filters change
+    setFilteredNames(filterNames);
+  }, [searchQuery, selectedGender, selectedOrigin]);
 
   return (
     <View style={styles.container}>
@@ -57,36 +57,34 @@ export default function NameListScreen() {
         value={searchQuery}
       />
 
-      {/* Filters Section (Gender & Origin Side by Side) */}
       <View style={styles.filtersContainer}>
         <View style={styles.filterBox}>
           <Text style={styles.filterLabel}>Gender:</Text>
-          <RNPickerSelect
-            value={selectedGender}
+          <Picker
+            selectedValue={selectedGender}
             onValueChange={(value) => setSelectedGender(value)}
-            style={pickerSelectStyles}
-            items={genders.map((gender) => ({
-              label: gender,
-              value: gender,
-            }))}
-          />
+            style={styles.picker}
+          >
+            {genders.map((gender) => (
+              <Picker.Item key={gender} label={gender} value={gender} />
+            ))}
+          </Picker>
         </View>
 
         <View style={styles.filterBox}>
           <Text style={styles.filterLabel}>Origin:</Text>
-          <RNPickerSelect
-            value={selectedOrigin}
+          <Picker
+            selectedValue={selectedOrigin}
             onValueChange={(value) => setSelectedOrigin(value)}
-            style={pickerSelectStyles}
-            items={origins.map((origin) => ({
-              label: origin,
-              value: origin,
-            }))}
-          />
+            style={styles.picker}
+          >
+            {origins.map((origin) => (
+              <Picker.Item key={origin} label={origin} value={origin} />
+            ))}
+          </Picker>
         </View>
       </View>
 
-      {/* Name List */}
       <FlatList
         data={filteredNames}
         keyExtractor={(item) => item.name}
@@ -128,34 +126,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 8,
   },
+  picker: {
+    height: 40,
+    borderColor: "#ccc",
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingLeft: 10,
+  },
 });
-
-// Picker styles for react-native-picker-select
-const pickerSelectStyles = {
-  inputIOS: {
-    height: 55, // Increased height to prevent clipping
-    borderColor: "#ccc",
-    borderWidth: 1,
-    borderRadius: 8,
-    paddingLeft: 10,
-    paddingRight: 10, // Added right padding for consistency
-    color: "black", // Text color
-    backgroundColor: "#fff", // Background color for IOS
-    fontSize: 16, // Adjusted font size for better readability
-    textAlign: "center" as "center", // Explicitly set textAlign to "center"
-    lineHeight: 30, // Adjust line-height to avoid clipping of letters
-  },
-  inputAndroid: {
-    height: 55, // Increased height to prevent clipping
-    borderColor: "#ccc",
-    borderWidth: 1,
-    borderRadius: 8,
-    paddingLeft: 10,
-    paddingRight: 10, // Added right padding for consistency
-    color: "black", // Text color
-    backgroundColor: "#fff", // Background color for Android
-    fontSize: 16, // Adjusted font size for better readability
-    textAlign: "center" as "center", // Explicitly set textAlign to "center"
-    lineHeight: 30, // Adjust line-height to avoid clipping of letters
-  },
-};
