@@ -1,10 +1,19 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Button } from "react-native";
+import { useRouter } from "expo-router";
 
 export default function Index() {
+  const router = useRouter();
+
+  const navigateToNames = () => {
+    // Navigate to the 'name-list' screen
+    router.push("/name-list");
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Islamic Names Catalog</Text>
       <Text style={styles.subtitle}>Welcome to the Islamic Names App!</Text>
+      <Button title="View Names" onPress={navigateToNames} />
     </View>
   );
 }
