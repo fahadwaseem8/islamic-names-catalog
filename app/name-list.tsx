@@ -34,19 +34,21 @@ export default function NameListScreen() {
   ];
 
   useEffect(() => {
-    const filterNames = namesData.filter((name) => {
-      const matchesSearch = name.name
-        .toLowerCase()
-        .includes(searchQuery.toLowerCase());
+    const filterNames = namesData
+      .filter((name) => {
+        const matchesSearch = name.name
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase());
 
-      const matchesGender =
-        selectedGender === "Any" || name.gender === selectedGender;
+        const matchesGender =
+          selectedGender === "Any" || name.gender === selectedGender;
 
-      const matchesOrigin =
-        selectedOrigin === "Any" || name.origin === selectedOrigin;
+        const matchesOrigin =
+          selectedOrigin === "Any" || name.origin === selectedOrigin;
 
-      return matchesSearch && matchesGender && matchesOrigin;
-    });
+        return matchesSearch && matchesGender && matchesOrigin;
+      })
+      .sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
 
     setFilteredNames(filterNames);
   }, [searchQuery, selectedGender, selectedOrigin]);
