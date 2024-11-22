@@ -1,61 +1,99 @@
 import React, { useState, useEffect } from "react";
 import { Stack, usePathname } from "expo-router";
-import { Appearance, StatusBar } from "react-native";
-import { getCurrentTheme, Theme, lightTheme, darkTheme } from "../styles/theme"; // Import the theme logic
+import {
+  Appearance,
+  StatusBar,
+  View,
+  Platform,
+  KeyboardAvoidingView,
+} from "react-native";
+import { getCurrentTheme, Theme, lightTheme, darkTheme } from "../styles/theme";
 
 export default function RootLayout() {
-  const pathname = usePathname(); // Get the current route's pathname
-  const [currentTheme, setCurrentTheme] = useState<Theme>(getCurrentTheme()); // Set initial theme
+  const pathname = usePathname();
+  const [currentTheme, setCurrentTheme] = useState(getCurrentTheme());
+  const colorScheme = Appearance.getColorScheme(); // Directly fetch the current color scheme
 
+  // Handle system theme changes
   useEffect(() => {
-    // Listen for system theme changes
     const listener = Appearance.addChangeListener(({ colorScheme }) => {
-      const newTheme = getCurrentTheme(); // Fetch the new theme
+      const newTheme = getCurrentTheme();
       setCurrentTheme(newTheme);
-
-      // Set the StatusBar style based on the new theme mode
       StatusBar.setBarStyle(
-        newTheme === darkTheme ? "light-content" : "dark-content"
+        colorScheme === "dark" ? "light-content" : "dark-content"
       );
-      StatusBar.setBackgroundColor(newTheme.headerBackground); // Set status bar background color to match theme
+      StatusBar.setBackgroundColor(newTheme.headerBackground);
     });
 
-    // Set initial StatusBar style and background color based on the initial theme mode
+    // Initial theme setup
     StatusBar.setBarStyle(
-      currentTheme === darkTheme ? "light-content" : "dark-content"
+      colorScheme === "dark" ? "light-content" : "dark-content"
     );
-    StatusBar.setBackgroundColor(currentTheme.headerBackground); // Set initial background color
+    StatusBar.setBackgroundColor(currentTheme.headerBackground);
 
-    // Cleanup the listener when the component is unmounted
     return () => listener.remove();
-  }, [currentTheme]);
-
-  // Function to get the title based on the route
-  const getHeaderTitle = (pathname: string) => {
-    switch (pathname) {
-      case "/":
-        return "Home";
-      case "/name-list":
-        return "Names List";
-      case "/name-detail":
-        return "Name Detail";
-      default:
-        return "App"; // Default title for unknown routes
-    }
-  };
+  }, [colorScheme]);
 
   return (
-    <Stack
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: currentTheme.headerBackground, // Use the header background color from the theme
-        },
-        headerTitleStyle: {
-          color: currentTheme.headerText, // Use the header text color from the theme
-        },
-        headerTitle: getHeaderTitle(pathname), // Dynamically set the header title
-        headerTintColor: currentTheme.headerText, // Set back arrow color to match header text
-      }}
-    />
+    // Wrap everything in KeyboardAvoidingView to ensure layout remains stable when the keyboard shows up
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={{ flex: 1 }}
+    >
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: currentTheme.background, // Stable background color
+        }}
+      >
+        <Stack
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: currentTheme.headerBackground,
+            },
+            headerTintColor: currentTheme.headerText,
+            headerTitleStyle: {
+              color: currentTheme.headerText,
+            },
+            contentStyle: {
+              backgroundColor: currentTheme.background,
+            },
+            animation: "fade", // Optional: Use fade to prevent abrupt transitions
+          }}
+        >
+          <Stack.Screen
+            name="index"
+            options={{
+              title: getHeaderTitle(pathname),
+            }}
+          />
+          <Stack.Screen
+            name="name-list"
+            options={{
+              title: getHeaderTitle("/name-list"),
+            }}
+          />
+          <Stack.Screen
+            name="name-detail"
+            options={{
+              title: getHeaderTitle("/name-detail"),
+            }}
+          />
+        </Stack>
+      </View>
+    </KeyboardAvoidingView>
   );
 }
+
+const getHeaderTitle = (pathname: string) => {
+  switch (pathname) {
+    case "/":
+      return "Home";
+    case "/name-list":
+      return "Names List";
+    case "/name-detail":
+      return "Name Detail";
+    default:
+      return "App";
+  }
+};
