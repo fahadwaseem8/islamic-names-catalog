@@ -1,4 +1,3 @@
-// /app/_layout.tsx
 import React, { useState, useEffect } from "react";
 import { Stack, usePathname } from "expo-router";
 import { Appearance } from "react-native";
@@ -44,6 +43,9 @@ export default function RootLayout() {
           color: currentTheme.headerText, // Use the header text color from the theme
         },
         headerTitle: getHeaderTitle(pathname), // Dynamically set the header title
+        contentStyle: {
+          backgroundColor: currentTheme.background, // Set the background color for the entire content
+        },
       }}
     />
   );
