@@ -1,5 +1,6 @@
 import React from "react";
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
+import { getCurrentTheme } from "../styles/theme"; // Import the theme function
 
 interface NameCardProps {
   name: { name: string };
@@ -7,9 +8,14 @@ interface NameCardProps {
 }
 
 export default function NameCard({ name, onPress }: NameCardProps) {
+  const theme = getCurrentTheme(); // Get the current theme
+
   return (
-    <TouchableOpacity style={styles.card} onPress={onPress}>
-      <Text style={styles.name}>{name.name}</Text>
+    <TouchableOpacity
+      style={[styles.card, { backgroundColor: theme.cardBackground }]}
+      onPress={onPress}
+    >
+      <Text style={[styles.name, { color: theme.text }]}>{name.name}</Text>
     </TouchableOpacity>
   );
 }
@@ -19,7 +25,6 @@ const styles = StyleSheet.create({
     padding: 15,
     marginVertical: 8,
     borderRadius: 8,
-    backgroundColor: "#f0f0f0",
     shadowColor: "#000",
     shadowOpacity: 0.1,
     shadowRadius: 8,

@@ -1,3 +1,4 @@
+// /app/name-list.tsx
 import React, { useState, useEffect } from "react";
 import {
   View,
@@ -10,6 +11,7 @@ import {
 import { useRouter } from "expo-router";
 import NameCard from "../components/NameCard";
 import { Picker } from "@react-native-picker/picker";
+import { getCurrentTheme } from "../styles/theme"; // Import theme function
 
 const namesData: {
   name: string;
@@ -23,6 +25,7 @@ export default function NameListScreen() {
   const [selectedGender, setSelectedGender] = useState<string | null>("Any");
   const [selectedOrigin, setSelectedOrigin] = useState<string | null>("Any");
   const [filteredNames, setFilteredNames] = useState<{ name: string }[]>([]);
+  const [theme, setTheme] = useState(getCurrentTheme()); // State to store the current theme
 
   const genders: string[] = [
     "Any",
@@ -54,22 +57,28 @@ export default function NameListScreen() {
   }, [searchQuery, selectedGender, selectedOrigin]);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
       <TextInput
-        style={styles.searchInput}
+        style={[
+          styles.searchInput,
+          { backgroundColor: theme.cardBackground, color: theme.text },
+        ]}
         placeholder="Search names..."
+        placeholderTextColor={theme.text} // Change placeholder text color
         onChangeText={setSearchQuery}
         value={searchQuery}
       />
 
       <View style={styles.filtersContainer}>
         <View style={styles.filterBox}>
-          <Text style={styles.filterLabel}>Gender:</Text>
+          <Text style={[styles.filterLabel, { color: theme.text }]}>
+            Gender:
+          </Text>
           <View style={styles.pickerContainer}>
             <Picker
               selectedValue={selectedGender}
               onValueChange={(value) => setSelectedGender(value)}
-              style={styles.picker}
+              style={[styles.picker, { color: theme.text }]}
               itemStyle={styles.pickerItem}
               mode="dropdown"
             >
@@ -81,12 +90,14 @@ export default function NameListScreen() {
         </View>
 
         <View style={styles.filterBox}>
-          <Text style={styles.filterLabel}>Origin:</Text>
+          <Text style={[styles.filterLabel, { color: theme.text }]}>
+            Origin:
+          </Text>
           <View style={styles.pickerContainer}>
             <Picker
               selectedValue={selectedOrigin}
               onValueChange={(value) => setSelectedOrigin(value)}
-              style={styles.picker}
+              style={[styles.picker, { color: theme.text }]}
               itemStyle={styles.pickerItem}
               mode="dropdown"
             >
