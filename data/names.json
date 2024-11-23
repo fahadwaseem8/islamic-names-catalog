@@ -210,12 +210,6 @@
     "origin": "Arabic"
   },
   {
-    "name": "Anas",
-    "meaning": "Friendliness, closeness",
-    "gender": "Male",
-    "origin": "Arabic"
-  },
-  {
     "name": "Naila",
     "meaning": "Acquirer, achiever",
     "gender": "Female",
@@ -532,5 +526,107 @@
     "meaning": "Beautiful, Radiant",
     "gender": "Female",
     "origin": "Persian"
+  },
+  {
+    "name": "Waseem",
+    "meaning": "Handsome, graceful",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Saima",
+    "meaning": "Fasting woman",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Asad",
+    "meaning": "Lion",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Damiya",
+    "meaning": "Kind and merciful",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Fahad",
+    "meaning": "Leopard, Panther",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Anas",
+    "meaning": "Friendly, sociable",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Sabir",
+    "meaning": "Patient, persevering",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Salaar",
+    "meaning": "Leader, commander",
+    "gender": "Male",
+    "origin": "Persian"
+  },
+  {
+    "name": "Malaika",
+    "meaning": "Angels",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Mehlaka",
+    "meaning": "Beautiful as the moon",
+    "gender": "Female",
+    "origin": "Persian"
+  },
+  {
+    "name": "Jamil",
+    "meaning": "Beautiful, handsome",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Tahir",
+    "meaning": "Pure, clean",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Zahid",
+    "meaning": "Pious, ascetic",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Ashfaq",
+    "meaning": "Compassion, kindness",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Talha",
+    "meaning": "Name of a companion of the Prophet Muhammad (PBUH)",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Humaira",
+    "meaning": "Reddish complexion",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Najma",
+    "meaning": "Star",
+    "gender": "Female",
+    "origin": "Arabic"
   }
 ]
