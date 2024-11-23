@@ -20,10 +20,6 @@ export default function NameDetailCard({
   return (
     <View style={[styles.card, { backgroundColor: theme.cardBackground }]}>
       <Text style={[styles.details, { color: theme.text }]}>
-        <Text style={styles.label}>Name: </Text>
-        {name}
-      </Text>
-      <Text style={[styles.details, { color: theme.text }]}>
         <Text style={styles.label}>Meaning: </Text>
         {meaning}
       </Text>
