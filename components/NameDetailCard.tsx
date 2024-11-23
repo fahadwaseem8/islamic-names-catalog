@@ -27,7 +27,6 @@ export default function NameDetailCard({ name, onBack }: NameDetailCardProps) {
       <Text style={[styles.detail, { color: theme.text }]}>
         Origin: {name.origin}
       </Text>
-      <Button title="Back to List" onPress={onBack} />
     </View>
   );
 }

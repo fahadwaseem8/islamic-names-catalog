@@ -1,8 +1,7 @@
-// /app/name-detail.tsx
-import { router, SearchParams } from "expo-router";
+import { Appearance } from "react-native";
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, Button, Appearance } from "react-native";
-import { getCurrentTheme } from "../styles/theme"; // Import theme function
+import { View, Text, StyleSheet } from "react-native";
+import { getCurrentTheme } from "../styles/theme";
 import { useSearchParams } from "expo-router/build/hooks";
 
 // Assuming the names data is in a `names.json` file inside the `data` folder.
@@ -17,7 +16,7 @@ export default function NameDetailScreen() {
   useEffect(() => {
     // Listen for system theme changes
     const subscription = Appearance.addChangeListener(({ colorScheme }) => {
-      setTheme(colorScheme === "dark" ? getCurrentTheme() : getCurrentTheme());
+      setTheme(getCurrentTheme());
     });
 
     // Filter the namesData to find the matching name
@@ -44,15 +43,20 @@ export default function NameDetailScreen() {
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
       <Text style={[styles.name, { color: theme.text }]}>{name}</Text>
-      <Text style={[styles.details, { color: theme.text }]}>
-        Meaning: {nameDetails.meaning}
-      </Text>
-      <Text style={[styles.details, { color: theme.text }]}>
-        Gender: {nameDetails.gender}
-      </Text>
-      <Text style={[styles.details, { color: theme.text }]}>
-        Origin: {nameDetails.origin}
-      </Text>
+      <View style={[styles.card, { backgroundColor: theme.cardBackground }]}>
+        <Text style={[styles.details, { color: theme.text }]}>
+          <Text style={styles.label}>Meaning: </Text>
+          {nameDetails.meaning}
+        </Text>
+        <Text style={[styles.details, { color: theme.text }]}>
+          <Text style={styles.label}>Gender: </Text>
+          {nameDetails.gender}
+        </Text>
+        <Text style={[styles.details, { color: theme.text }]}>
+          <Text style={styles.label}>Origin: </Text>
+          {nameDetails.origin}
+        </Text>
+      </View>
     </View>
   );
 }
@@ -65,13 +69,29 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   name: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: "bold",
     textAlign: "center",
+    marginBottom: 24, // Space below the title
+  },
+  card: {
+    width: "90%", // Card width
+    borderRadius: 12,
+    padding: 20,
+    shadowColor: "#000", // Shadow for better elevation
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 4, // For Android shadow
+    marginBottom: 16,
   },
   details: {
-    fontSize: 16,
-    marginTop: 10,
-    textAlign: "center",
+    fontSize: 18,
+    marginBottom: 12, // Space between each detail
+    textAlign: "left", // Align text inside the card
+    lineHeight: 24,
+  },
+  label: {
+    fontWeight: "bold", // Highlight labels like "Meaning:"
   },
 });

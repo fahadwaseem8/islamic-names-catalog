@@ -1,4 +1,3 @@
-// /app/index.tsx
 import React, { useState, useEffect } from "react";
 import {
   Text,
@@ -62,11 +61,13 @@ export default function Index() {
         <Text style={[styles.subtitle, { color: theme.text }]}>
           Welcome to the Islamic Names App!
         </Text>
-        <Button
-          title="View Names"
-          onPress={navigateToNames}
-          color={theme.button} // Set button color based on the theme
-        />
+        <View style={styles.buttonContainer}>
+          <Button
+            title="View Names"
+            onPress={navigateToNames}
+            color={theme.button} // Set button color based on the theme
+          />
+        </View>
       </View>
     </ImageBackground>
   );
@@ -88,10 +89,15 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     textAlign: "center",
+    marginBottom: 12, // Add space below the title
   },
   subtitle: {
     fontSize: 16,
-    marginTop: 10,
+    marginBottom: 20, // Add space below the subtitle
     textAlign: "center",
+  },
+  buttonContainer: {
+    marginTop: 20, // Add space above the button
+    width: "60%", // Optional: Adjust button width
   },
 });

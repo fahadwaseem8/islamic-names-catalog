@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "islamic-names-catalog",
+    "name": "Islamic Names",
     "slug": "islamic-names-catalog",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/Logo-Light.png",
+    "icon": "./assets/images/Logo.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -13,7 +13,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/Logo-Light.png",
+        "foregroundImage": "./assets/images/Logo.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.fahadw9.islamicnamescatalog"
@@ -21,17 +21,17 @@
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/Logo-Light.png"
+      "favicon": "./assets/images/Logo.png"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/Logo-Light.png",
+          "image": "./assets/images/Logo.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#d9d9d9"
         }
       ]
     ],

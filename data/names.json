@@ -28,5 +28,329 @@
     "meaning": "Flourishing, long-lived",
     "gender": "Male",
     "origin": "Arabic"
+  },
+  {
+    "name": "Fatima",
+    "meaning": "Captivating, daughter of Prophet Muhammad (PBUH)",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Ali",
+    "meaning": "Exalted, noble",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Aisha",
+    "meaning": "Alive, living, prosperous",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Hassan",
+    "meaning": "Handsome, good, benefactor",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Maryam",
+    "meaning": "Beloved, mother of Prophet Jesus (PBUH)",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Yusuf",
+    "meaning": "God increases, Prophet Joseph",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Zara",
+    "meaning": "Princess, blooming flower",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Ibrahim",
+    "meaning": "Father of a multitude, Prophet Abraham",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Khadija",
+    "meaning": "Premature baby, first wife of Prophet Muhammad (PBUH)",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Ahmed",
+    "meaning": "Highly praised, one who constantly thanks Allah",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Aminah",
+    "meaning": "Trustworthy, faithful",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Bilal",
+    "meaning": "Water, moisture",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Safa",
+    "meaning": "Purity, clarity",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Salman",
+    "meaning": "Safe, secure, companion of Prophet Muhammad (PBUH)",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Zain",
+    "meaning": "Beauty, grace",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Huda",
+    "meaning": "Guidance, right path",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Rayan",
+    "meaning": "Gates of Heaven, lush",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Aaliyah",
+    "meaning": "Exalted, high, sublime",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Imran",
+    "meaning": "Prosperity, father of Prophet Moses",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Noor",
+    "meaning": "Light, radiance",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Sami",
+    "meaning": "Elevated, sublime",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Lina",
+    "meaning": "Tender, soft",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Farhan",
+    "meaning": "Happiness, joy",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Amira",
+    "meaning": "Princess, leader",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Hamza",
+    "meaning": "Lion, strong",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Nadia",
+    "meaning": "Caller, announcer",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Tariq",
+    "meaning": "Morning star, night visitor",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Yasmin",
+    "meaning": "Jasmine flower",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Ismail",
+    "meaning": "God will hear, Prophet Ishmael",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Sara",
+    "meaning": "Pure, noble lady",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Anas",
+    "meaning": "Friendliness, closeness",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Naila",
+    "meaning": "Acquirer, achiever",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Saif",
+    "meaning": "Sword",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Hafsa",
+    "meaning": "Gathering, young lioness",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Zahra",
+    "meaning": "Bright, shining, flower",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Kamil",
+    "meaning": "Perfect, complete",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Rasha",
+    "meaning": "Young gazelle",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Musa",
+    "meaning": "Savior, Prophet Moses",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Lulwa",
+    "meaning": "Pearl",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Shams",
+    "meaning": "Sun",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Amin",
+    "meaning": "Trustworthy, faithful",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Marwa",
+    "meaning": "A mountain in Mecca, white stone",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Nabeel",
+    "meaning": "Noble, distinguished",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Maha",
+    "meaning": "Wild cow, oryx, also means beautiful eyes",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Basil",
+    "meaning": "Brave, courageous",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Jana",
+    "meaning": "Heaven, paradise",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Rafi",
+    "meaning": "Exalted, noble",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Siham",
+    "meaning": "Arrows",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Zaydah",
+    "meaning": "Growth, abundance",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Zaki",
+    "meaning": "Pure, clean",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Naima",
+    "meaning": "Comfort, calm, peaceful",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Samir",
+    "meaning": "Companion in evening talk, entertaining",
+    "gender": "Male",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Yumna",
+    "meaning": "Blessed, fortunate",
+    "gender": "Female",
+    "origin": "Arabic"
+  },
+  {
+    "name": "Zainab",
+    "meaning": "Father's precious jewel, fragrant flower",
+    "gender": "Female",
+    "origin": "Arabic"
   }
 ]
