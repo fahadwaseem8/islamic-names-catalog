@@ -1,31 +1,39 @@
 import React from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
-import { getCurrentTheme } from "../styles/theme"; // Import the theme function
+import { View, Text, StyleSheet } from "react-native";
+import { getCurrentTheme } from "../styles/theme"; // Ensure this file exists or adjust the import
 
 interface NameDetailCardProps {
-  name: {
-    name: string;
-    meaning: string;
-    gender: string;
-    origin: string;
-  };
-  onBack: () => void;
+  name: string;
+  meaning: string;
+  gender: string;
+  origin: string;
 }
 
-export default function NameDetailCard({ name, onBack }: NameDetailCardProps) {
+export default function NameDetailCard({
+  name,
+  meaning,
+  gender,
+  origin,
+}: NameDetailCardProps) {
   const theme = getCurrentTheme(); // Get the current theme
 
   return (
     <View style={[styles.card, { backgroundColor: theme.cardBackground }]}>
-      <Text style={[styles.name, { color: theme.text }]}>{name.name}</Text>
-      <Text style={[styles.detail, { color: theme.text }]}>
-        Meaning: {name.meaning}
+      <Text style={[styles.details, { color: theme.text }]}>
+        <Text style={styles.label}>Name: </Text>
+        {name}
       </Text>
-      <Text style={[styles.detail, { color: theme.text }]}>
-        Gender: {name.gender}
+      <Text style={[styles.details, { color: theme.text }]}>
+        <Text style={styles.label}>Meaning: </Text>
+        {meaning}
       </Text>
-      <Text style={[styles.detail, { color: theme.text }]}>
-        Origin: {name.origin}
+      <Text style={[styles.details, { color: theme.text }]}>
+        <Text style={styles.label}>Gender: </Text>
+        {gender}
+      </Text>
+      <Text style={[styles.details, { color: theme.text }]}>
+        <Text style={styles.label}>Origin: </Text>
+        {origin}
       </Text>
     </View>
   );
@@ -33,21 +41,23 @@ export default function NameDetailCard({ name, onBack }: NameDetailCardProps) {
 
 const styles = StyleSheet.create({
   card: {
-    padding: 16,
-    margin: 10,
-    borderRadius: 8,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    elevation: 3,
+    width: "90%", // Card width
+    borderRadius: 12,
+    padding: 20,
+    shadowColor: "#000", // Shadow for better elevation
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 4, // For Android shadow
+    marginBottom: 16,
   },
-  name: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 8,
+  details: {
+    fontSize: 18,
+    marginBottom: 12, // Space between each detail
+    textAlign: "left", // Align text inside the card
+    lineHeight: 24,
   },
-  detail: {
-    fontSize: 16,
-    marginBottom: 6,
+  label: {
+    fontWeight: "bold", // Highlight labels like "Meaning:"
   },
 });

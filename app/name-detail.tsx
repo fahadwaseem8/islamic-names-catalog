@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { getCurrentTheme } from "../styles/theme";
 import { useSearchParams } from "expo-router/build/hooks";
+import NameDetailCard from "../components/NameDetailCard"; // Import the new component
 
-// Assuming the names data is in a `names.json` file inside the `data` folder.
 const namesData = require("../data/names.json");
 
 export default function NameDetailScreen() {
@@ -14,8 +14,8 @@ export default function NameDetailScreen() {
   const [theme, setTheme] = useState(getCurrentTheme()); // State to store the current theme
 
   useEffect(() => {
-    // Listen for system theme changes
-    const subscription = Appearance.addChangeListener(({ colorScheme }) => {
+    // Update theme dynamically when system theme changes
+    const listener = Appearance.addChangeListener(() => {
       setTheme(getCurrentTheme());
     });
 
@@ -28,7 +28,7 @@ export default function NameDetailScreen() {
     }
 
     return () => {
-      subscription.remove(); // Clean up the listener
+      listener.remove(); // Clean up listener on unmount
     };
   }, [name]); // Re-run whenever the name changes
 
@@ -42,21 +42,15 @@ export default function NameDetailScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
-      <Text style={[styles.name, { color: theme.text }]}>{name}</Text>
-      <View style={[styles.card, { backgroundColor: theme.cardBackground }]}>
-        <Text style={[styles.details, { color: theme.text }]}>
-          <Text style={styles.label}>Meaning: </Text>
-          {nameDetails.meaning}
-        </Text>
-        <Text style={[styles.details, { color: theme.text }]}>
-          <Text style={styles.label}>Gender: </Text>
-          {nameDetails.gender}
-        </Text>
-        <Text style={[styles.details, { color: theme.text }]}>
-          <Text style={styles.label}>Origin: </Text>
-          {nameDetails.origin}
-        </Text>
-      </View>
+      <Text style={[styles.name, { color: theme.text }]}>
+        {nameDetails.name}
+      </Text>
+      <NameDetailCard
+        name={nameDetails.name}
+        meaning={nameDetails.meaning}
+        gender={nameDetails.gender}
+        origin={nameDetails.origin}
+      />
     </View>
   );
 }
@@ -73,25 +67,5 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     marginBottom: 24, // Space below the title
-  },
-  card: {
-    width: "90%", // Card width
-    borderRadius: 12,
-    padding: 20,
-    shadowColor: "#000", // Shadow for better elevation
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    elevation: 4, // For Android shadow
-    marginBottom: 16,
-  },
-  details: {
-    fontSize: 18,
-    marginBottom: 12, // Space between each detail
-    textAlign: "left", // Align text inside the card
-    lineHeight: 24,
-  },
-  label: {
-    fontWeight: "bold", // Highlight labels like "Meaning:"
   },
 });

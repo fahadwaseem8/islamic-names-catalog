@@ -1,4 +1,3 @@
-// /app/name-list.tsx
 import React, { useState, useEffect } from "react";
 import {
   View,
@@ -7,6 +6,7 @@ import {
   StyleSheet,
   TextInput,
   Dimensions,
+  Appearance,
 } from "react-native";
 import { useRouter } from "expo-router";
 import NameCard from "../components/NameCard";
@@ -37,6 +37,7 @@ export default function NameListScreen() {
   ];
 
   useEffect(() => {
+    // Filter names when search query, gender, or origin changes
     const filterNames = namesData
       .filter((name) => {
         const matchesSearch = name.name
@@ -55,6 +56,15 @@ export default function NameListScreen() {
 
     setFilteredNames(filterNames);
   }, [searchQuery, selectedGender, selectedOrigin]);
+
+  useEffect(() => {
+    // Listen for system theme changes
+    const listener = Appearance.addChangeListener(() => {
+      setTheme(getCurrentTheme()); // Update theme when system theme changes
+    });
+
+    return () => listener.remove(); // Cleanup listener on unmount
+  }, []);
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
