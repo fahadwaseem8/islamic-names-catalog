@@ -7,12 +7,12 @@ import {
   Platform,
   KeyboardAvoidingView,
 } from "react-native";
-import { getCurrentTheme, Theme, lightTheme, darkTheme } from "../styles/theme";
+import { getCurrentTheme } from "../styles/theme";
 
 export default function RootLayout() {
   const pathname = usePathname();
   const [currentTheme, setCurrentTheme] = useState(getCurrentTheme());
-  const colorScheme = Appearance.getColorScheme(); // Directly fetch the current color scheme
+  const colorScheme = Appearance.getColorScheme(); // Fetch the current color scheme
 
   // Handle system theme changes
   useEffect(() => {
@@ -22,28 +22,41 @@ export default function RootLayout() {
       StatusBar.setBarStyle(
         colorScheme === "dark" ? "light-content" : "dark-content"
       );
-      StatusBar.setBackgroundColor(newTheme.headerBackground);
+      if (Platform.OS === "android") {
+        StatusBar.setBackgroundColor(newTheme.headerBackground);
+      }
     });
 
     // Initial theme setup
     StatusBar.setBarStyle(
       colorScheme === "dark" ? "light-content" : "dark-content"
     );
-    StatusBar.setBackgroundColor(currentTheme.headerBackground);
+    if (Platform.OS === "android") {
+      StatusBar.setBackgroundColor(currentTheme.headerBackground);
+    }
 
     return () => listener.remove();
   }, [colorScheme]);
 
   return (
-    // Wrap everything in KeyboardAvoidingView to ensure layout remains stable when the keyboard shows up
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={{ flex: 1 }}
     >
+      {/* Optional View for iOS to simulate status bar background */}
+      {Platform.OS === "ios" && (
+        <View
+          style={{
+            height: StatusBar.currentHeight || 20, // Fallback for iOS default
+            backgroundColor: currentTheme.headerBackground,
+          }}
+        />
+      )}
+
       <View
         style={{
           flex: 1,
-          backgroundColor: currentTheme.background, // Stable background color
+          backgroundColor: currentTheme.background,
         }}
       >
         <Stack
@@ -58,7 +71,7 @@ export default function RootLayout() {
             contentStyle: {
               backgroundColor: currentTheme.background,
             },
-            animation: "fade", // Optional: Use fade to prevent abrupt transitions
+            animation: "fade",
           }}
         >
           <Stack.Screen

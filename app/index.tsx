@@ -1,8 +1,15 @@
 // /app/index.tsx
 import React, { useState, useEffect } from "react";
-import { Text, View, StyleSheet, Button } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  Button,
+  ImageBackground,
+  Platform,
+} from "react-native";
 import { useRouter } from "expo-router";
-import { Appearance } from "react-native"; // Import Appearance
+import { Appearance, StatusBar } from "react-native"; // Import StatusBar and Appearance
 import { getCurrentTheme } from "../styles/theme"; // Import theme function
 
 export default function Index() {
@@ -12,36 +19,65 @@ export default function Index() {
   useEffect(() => {
     // Listen for changes in system color scheme
     const subscription = Appearance.addChangeListener(({ colorScheme }) => {
-      setTheme(colorScheme === "dark" ? getCurrentTheme() : getCurrentTheme()); // Update theme when the color scheme changes
+      const newTheme = getCurrentTheme();
+      setTheme(newTheme);
+
+      // Only set background color on Android
+      if (Platform.OS === "android") {
+        StatusBar.setBackgroundColor(newTheme.headerBackground);
+      }
+
+      StatusBar.setBarStyle(
+        colorScheme === "dark" ? "light-content" : "dark-content"
+      );
     });
+
+    // Initial setup for StatusBar
+    if (Platform.OS === "android") {
+      StatusBar.setBackgroundColor(theme.headerBackground);
+    }
+    StatusBar.setBarStyle(
+      Appearance.getColorScheme() === "dark" ? "light-content" : "dark-content"
+    );
 
     return () => {
       subscription.remove(); // Clean up the listener when the component is unmounted
     };
-  }, []); // Empty dependency array means this effect runs only once when the component mounts
+  }, [theme]);
 
   const navigateToNames = () => {
     router.push("/name-list");
   };
 
   return (
-    <View style={[styles.container, { backgroundColor: theme.background }]}>
-      <Text style={[styles.title, { color: theme.text }]}>
-        Islamic Names Catalog
-      </Text>
-      <Text style={[styles.subtitle, { color: theme.text }]}>
-        Welcome to the Islamic Names App!
-      </Text>
-      <Button
-        title="View Names"
-        onPress={navigateToNames}
-        color={theme.button} // Set button color based on the theme
-      />
-    </View>
+    <ImageBackground
+      source={require("../assets/images/app-background.png")} // Background image
+      style={styles.background}
+      resizeMode="cover" // Adjust image scaling
+    >
+      <View style={styles.container}>
+        <Text style={[styles.title, { color: theme.text }]}>
+          Islamic Names Catalog
+        </Text>
+        <Text style={[styles.subtitle, { color: theme.text }]}>
+          Welcome to the Islamic Names App!
+        </Text>
+        <Button
+          title="View Names"
+          onPress={navigateToNames}
+          color={theme.button} // Set button color based on the theme
+        />
+      </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    width: "100%",
+    height: "100%",
+  },
   container: {
     flex: 1,
     justifyContent: "center",
