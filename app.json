@@ -2,14 +2,15 @@
   "expo": {
     "name": "Islamic Names",
     "slug": "islamic-names-catalog",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.fahadwaseem.islamicnamescatalog"
     },
     "android": {
       "adaptiveIcon": {
