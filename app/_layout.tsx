@@ -92,14 +92,6 @@ export default function RootLayout() {
               title: getHeaderTitle("/name-detail"),
             }}
           />
-          {Platform.OS === "web" && (
-            <Stack.Screen
-              name="privacypolicy"
-              options={{
-                title: "Privacy Policy",
-              }}
-            />
-          )}
         </Stack>
       </View>
     </KeyboardAvoidingView>
