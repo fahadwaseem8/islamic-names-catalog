@@ -1,50 +1,100 @@
-# Welcome to your Expo app 👋
+# Islamic Names Catalog
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A cross-platform application built with React Native and Expo that provides a comprehensive catalog of Islamic names, their meanings, and origins.
 
-## Get started
+## Features
 
-1. Install dependencies
+- 📱 Cross-platform support (iOS, Android, Web)
+- 🌙 Dark/Light theme support with system preference detection
+- 🔍 Search functionality for names
+- 🎯 Filter names by gender and origin
+- 📖 Detailed information for each name
+- 💫 Smooth animations and transitions
+- 🌐 Web-optimized interface
+- 📱 Responsive design for all screen sizes
+
+## Technologies Used
+
+- [Expo](https://expo.dev/)
+- [React Native](https://reactnative.dev/)
+- [Expo Router](https://docs.expo.dev/router/introduction/)
+- TypeScript
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or newer)
+- npm or yarn
+- [Expo CLI](https://docs.expo.dev/workflow/expo-cli/)
+
+### Installation
+
+1. Clone the repository
+
+   ```bash
+   git clone https://github.com/fahadwaseem8/islamic-names-catalog.git
+   ```
+
+2. Install dependencies
 
    ```bash
    npm install
+   # or
+   yarn install
    ```
 
-2. Start the app
-
+3. Start the development server
    ```bash
-    npx expo start
+   npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+### Running the App
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- For iOS: Press `i` in the terminal or run on iOS simulator
+- For Android: Press `a` in the terminal or run on Android emulator
+- For Web: Press `w` in the terminal or visit `http://localhost:8081`
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Project Structure
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+islamic-names-catalog/
+├── app/                    # Main application screens
+│   ├── _layout.tsx        # Root layout component
+│   ├── index.tsx          # Home screen
+│   ├── name-list.tsx      # Names listing screen
+│   ├── name-detail.tsx    # Name details screen
+│   └── privacypolicy.tsx  # Privacy policy page (web only)
+├── components/            # Reusable components
+├── styles/               # Theme and styling
+├── data/                 # Static data files
+└── assets/              # Images and other static assets
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Contributing
 
-## Learn more
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-To learn more about developing your project with Expo, look at the following resources:
+## Privacy Policy
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Our privacy policy is available at `/privacypolicy` on the web version of the app. The application does not collect any personal information and functions completely offline.
 
-## Join the community
+## License
 
-Join our community of developers creating universal apps.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Contact
+
+Fahad Waseem - fahadwaseem8@gmail.com
+
+Project Link: [https://github.com/fahadwaseem8/islamic-names-catalog](https://github.com/fahadwaseem8/islamic-names-catalog)
+
+## Acknowledgments
+
+- Thanks to all contributors who have helped with the Islamic names database
+- Expo team for providing excellent development tools
+- React Native community for continuous support

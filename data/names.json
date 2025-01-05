@@ -348,114 +348,6 @@
     "origin": "Arabic"
   },
   {
-    "name": "Asher",
-    "meaning": "Happy, blessed",
-    "gender": "Male",
-    "origin": "Hebrew"
-  },
-  {
-    "name": "Talia",
-    "meaning": "Dew from God",
-    "gender": "Female",
-    "origin": "Hebrew"
-  },
-  {
-    "name": "Noah",
-    "meaning": "Rest, comfort",
-    "gender": "Male",
-    "origin": "Hebrew"
-  },
-  {
-    "name": "Ethan",
-    "meaning": "Strong, firm",
-    "gender": "Male",
-    "origin": "Hebrew"
-  },
-  {
-    "name": "Leah",
-    "meaning": "Weary",
-    "gender": "Female",
-    "origin": "Hebrew"
-  },
-  {
-    "name": "Benjamin",
-    "meaning": "Son of the right hand",
-    "gender": "Male",
-    "origin": "Hebrew"
-  },
-  {
-    "name": "Samuel",
-    "meaning": "God has heard",
-    "gender": "Male",
-    "origin": "Hebrew"
-  },
-  {
-    "name": "Hannah",
-    "meaning": "Grace, favor",
-    "gender": "Female",
-    "origin": "Hebrew"
-  },
-  {
-    "name": "Isaiah",
-    "meaning": "God is salvation",
-    "gender": "Male",
-    "origin": "Hebrew"
-  },
-  {
-    "name": "Rachel",
-    "meaning": "Ewe, sheep",
-    "gender": "Female",
-    "origin": "Hebrew"
-  },
-  {
-    "name": "Gabriel",
-    "meaning": "God is my strength",
-    "gender": "Male",
-    "origin": "Hebrew"
-  },
-  {
-    "name": "Aviva",
-    "meaning": "Spring, renewal",
-    "gender": "Female",
-    "origin": "Hebrew"
-  },
-  {
-    "name": "Elijah",
-    "meaning": "My God is Yahweh",
-    "gender": "Male",
-    "origin": "Hebrew"
-  },
-  {
-    "name": "Shira",
-    "meaning": "Song, poetry",
-    "gender": "Female",
-    "origin": "Hebrew"
-  },
-  {
-    "name": "Joshua",
-    "meaning": "God is salvation",
-    "gender": "Male",
-    "origin": "Hebrew"
-  },
-  {
-    "name": "Naomi",
-    "meaning": "Pleasantness",
-    "gender": "Female",
-    "origin": "Hebrew"
-  },
-  {
-    "name": "David",
-    "meaning": "Beloved",
-    "gender": "Male",
-    "origin": "Hebrew"
-  },
-  {
-    "name": "Zev",
-    "meaning": "Wolf",
-    "gender": "Male",
-    "origin": "Hebrew"
-  },
-  {
     "name": "Dariush",
     "meaning": "King, Wealthy",
     "gender": "Male",
@@ -628,5 +520,113 @@
     "meaning": "Star",
     "gender": "Female",
     "origin": "Arabic"
+  },
+  {
+    "name": "Adam",
+    "meaning": "Man, earth",
+    "gender": "Male",
+    "origin": "Hebrew"
+  },
+  {
+    "name": "Nuh",
+    "meaning": "Rest, comfort",
+    "gender": "Male",
+    "origin": "Hebrew"
+  },
+  {
+    "name": "Ibrahim",
+    "meaning": "Father of a multitude",
+    "gender": "Male",
+    "origin": "Hebrew"
+  },
+  {
+    "name": "Musa",
+    "meaning": "Savior",
+    "gender": "Male",
+    "origin": "Hebrew"
+  },
+  {
+    "name": "Harun",
+    "meaning": "Mountain",
+    "gender": "Male",
+    "origin": "Hebrew"
+  },
+  {
+    "name": "Dawud",
+    "meaning": "Beloved",
+    "gender": "Male",
+    "origin": "Hebrew"
+  },
+  {
+    "name": "Sulaiman",
+    "meaning": "Peace",
+    "gender": "Male",
+    "origin": "Hebrew"
+  },
+  {
+    "name": "Yusuf",
+    "meaning": "God increases",
+    "gender": "Male",
+    "origin": "Hebrew"
+  },
+  {
+    "name": "Yunus",
+    "meaning": "Dove",
+    "gender": "Male",
+    "origin": "Hebrew"
+  },
+  {
+    "name": "Zakariya",
+    "meaning": "The Lord remembers",
+    "gender": "Male",
+    "origin": "Hebrew"
+  },
+  {
+    "name": "Yahya",
+    "meaning": "God has given life",
+    "gender": "Male",
+    "origin": "Hebrew"
+  },
+  {
+    "name": "Isa",
+    "meaning": "Salvation",
+    "gender": "Male",
+    "origin": "Hebrew"
+  },
+  {
+    "name": "Ilyas",
+    "meaning": "My God is Yahweh",
+    "gender": "Male",
+    "origin": "Hebrew"
+  },
+  {
+    "name": "Maryam",
+    "meaning": "Beloved",
+    "gender": "Female",
+    "origin": "Hebrew"
+  },
+  {
+    "name": "Sara",
+    "meaning": "Pure, noble lady",
+    "gender": "Female",
+    "origin": "Hebrew"
+  },
+  {
+    "name": "Hanna",
+    "meaning": "Grace",
+    "gender": "Female",
+    "origin": "Hebrew"
+  },
+  {
+    "name": "Leah",
+    "meaning": "Weary",
+    "gender": "Female",
+    "origin": "Hebrew"
+  },
+  {
+    "name": "Rahma",
+    "meaning": "Compassion",
+    "gender": "Female",
+    "origin": "Hebrew"
   }
 ]

@@ -7,6 +7,7 @@ import {
   TextInput,
   Dimensions,
   Appearance,
+  Platform,
 } from "react-native";
 import { useRouter } from "expo-router";
 import NameCard from "../components/NameCard";
@@ -22,8 +23,12 @@ const namesData: {
 export default function NameListScreen() {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedGender, setSelectedGender] = useState<string | null>("Any");
-  const [selectedOrigin, setSelectedOrigin] = useState<string | null>("Any");
+  const [selectedGender, setSelectedGender] = useState<string | undefined>(
+    "Any"
+  );
+  const [selectedOrigin, setSelectedOrigin] = useState<string | undefined>(
+    "Any"
+  );
   const [filteredNames, setFilteredNames] = useState<{ name: string }[]>([]);
   const [theme, setTheme] = useState(getCurrentTheme()); // State to store the current theme
 
@@ -66,6 +71,55 @@ export default function NameListScreen() {
     return () => listener.remove(); // Cleanup listener on unmount
   }, []);
 
+  const renderPicker = (
+    value: string | undefined,
+    onValueChange: (value: string) => void,
+    items: string[]
+  ) => {
+    if (Platform.OS === "web") {
+      return (
+        <View style={styles.webPickerContainer}>
+          <select
+            value={value || ""}
+            onChange={(e) => onValueChange(e.target.value)}
+            style={{
+              backgroundColor: theme.cardBackground,
+              color: theme.text,
+              width: "100%",
+              height: "40px",
+              borderRadius: 8,
+              padding: "0 10px",
+              border: `1px solid ${theme.text}`,
+              outline: "none",
+            }}
+          >
+            {items.map((item) => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            ))}
+          </select>
+        </View>
+      );
+    }
+
+    return (
+      <View style={styles.pickerContainer}>
+        <Picker
+          selectedValue={value || undefined}
+          onValueChange={onValueChange}
+          style={[styles.picker, { color: theme.text }]}
+          itemStyle={styles.pickerItem}
+          mode="dropdown"
+        >
+          {items.map((item) => (
+            <Picker.Item key={item} label={item} value={item} />
+          ))}
+        </Picker>
+      </View>
+    );
+  };
+
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
       <TextInput
@@ -74,7 +128,7 @@ export default function NameListScreen() {
           { backgroundColor: theme.cardBackground, color: theme.text },
         ]}
         placeholder="Search names..."
-        placeholderTextColor={theme.text} // Change placeholder text color
+        placeholderTextColor={theme.text}
         onChangeText={setSearchQuery}
         value={searchQuery}
       />
@@ -84,38 +138,14 @@ export default function NameListScreen() {
           <Text style={[styles.filterLabel, { color: theme.text }]}>
             Gender:
           </Text>
-          <View style={styles.pickerContainer}>
-            <Picker
-              selectedValue={selectedGender}
-              onValueChange={(value) => setSelectedGender(value)}
-              style={[styles.picker, { color: theme.text }]}
-              itemStyle={styles.pickerItem}
-              mode="dropdown"
-            >
-              {genders.map((gender) => (
-                <Picker.Item key={gender} label={gender} value={gender} />
-              ))}
-            </Picker>
-          </View>
+          {renderPicker(selectedGender, setSelectedGender, genders)}
         </View>
 
         <View style={styles.filterBox}>
           <Text style={[styles.filterLabel, { color: theme.text }]}>
             Origin:
           </Text>
-          <View style={styles.pickerContainer}>
-            <Picker
-              selectedValue={selectedOrigin}
-              onValueChange={(value) => setSelectedOrigin(value)}
-              style={[styles.picker, { color: theme.text }]}
-              itemStyle={styles.pickerItem}
-              mode="dropdown"
-            >
-              {origins.map((origin) => (
-                <Picker.Item key={origin} label={origin} value={origin} />
-              ))}
-            </Picker>
-          </View>
+          {renderPicker(selectedOrigin, setSelectedOrigin, origins)}
         </View>
       </View>
 
@@ -176,5 +206,8 @@ const styles = StyleSheet.create({
   pickerItem: {
     fontSize: 14,
     height: 60, // Ensure full text visibility
+  },
+  webPickerContainer: {
+    width: "100%",
   },
 });
