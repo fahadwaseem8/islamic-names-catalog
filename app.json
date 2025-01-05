@@ -16,7 +16,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.fahadw9.islamicnamescatalog"
+      "package": "com.fahadwaseem.islamicnamescatalog"
     },
     "web": {
       "bundler": "metro",
