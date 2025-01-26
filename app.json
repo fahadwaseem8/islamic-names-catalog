@@ -2,7 +2,7 @@
   "expo": {
     "name": "Islamic Names",
     "slug": "islamic-names-catalog",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
@@ -10,14 +10,14 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.fahadw9.islamicnamescatalog"
+      "bundleIdentifier": "com.fahadwaseem.islamicnamescatalog"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.fahadwaseem.islamicnamescatalog"
+      "package": "com.fahadw9.islamicnamescatalog"
     },
     "web": {
       "bundler": "metro",
