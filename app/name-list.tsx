@@ -17,16 +17,12 @@ import { getCurrentTheme } from "../styles/theme"; // Import theme function
 const namesData: {
   name: string;
   gender: string;
-  origin: string;
 }[] = require("../data/names.json");
 
 export default function NameListScreen() {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedGender, setSelectedGender] = useState<string | undefined>(
-    "Any"
-  );
-  const [selectedOrigin, setSelectedOrigin] = useState<string | undefined>(
     "Any"
   );
   const [filteredNames, setFilteredNames] = useState<{ name: string }[]>([]);
@@ -36,13 +32,9 @@ export default function NameListScreen() {
     "Any",
     ...new Set(namesData.map((item) => item.gender)),
   ];
-  const origins: string[] = [
-    "Any",
-    ...new Set(namesData.map((item) => item.origin)),
-  ];
 
   useEffect(() => {
-    // Filter names when search query, gender, or origin changes
+    // Filter names when search query or gender changes
     const filterNames = namesData
       .filter((name) => {
         const matchesSearch = name.name
@@ -52,15 +44,14 @@ export default function NameListScreen() {
         const matchesGender =
           selectedGender === "Any" || name.gender === selectedGender;
 
-        const matchesOrigin =
-          selectedOrigin === "Any" || name.origin === selectedOrigin;
 
-        return matchesSearch && matchesGender && matchesOrigin;
+
+        return matchesSearch && matchesGender;
       })
       .sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
 
     setFilteredNames(filterNames);
-  }, [searchQuery, selectedGender, selectedOrigin]);
+  }, [searchQuery, selectedGender]);
 
   useEffect(() => {
     // Listen for system theme changes
@@ -139,13 +130,6 @@ export default function NameListScreen() {
             Gender:
           </Text>
           {renderPicker(selectedGender, setSelectedGender, genders)}
-        </View>
-
-        <View style={styles.filterBox}>
-          <Text style={[styles.filterLabel, { color: theme.text }]}>
-            Origin:
-          </Text>
-          {renderPicker(selectedOrigin, setSelectedOrigin, origins)}
         </View>
       </View>
 

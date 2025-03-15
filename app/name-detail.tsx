@@ -49,7 +49,6 @@ export default function NameDetailScreen() {
         name={nameDetails.name}
         meaning={nameDetails.meaning}
         gender={nameDetails.gender}
-        origin={nameDetails.origin}
       />
     </View>
   );

@@ -6,14 +6,12 @@ interface NameDetailCardProps {
   name: string;
   meaning: string;
   gender: string;
-  origin: string;
 }
 
 export default function NameDetailCard({
   name,
   meaning,
   gender,
-  origin,
 }: NameDetailCardProps) {
   const theme = getCurrentTheme(); // Get the current theme
 
@@ -26,10 +24,6 @@ export default function NameDetailCard({
       <Text style={[styles.details, { color: theme.text }]}>
         <Text style={styles.label}>Gender: </Text>
         {gender}
-      </Text>
-      <Text style={[styles.details, { color: theme.text }]}>
-        <Text style={styles.label}>Origin: </Text>
-        {origin}
       </Text>
     </View>
   );

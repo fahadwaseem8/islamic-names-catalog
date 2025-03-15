@@ -1,13 +1,13 @@
 # Islamic Names Catalog
 
-A cross-platform application built with React Native and Expo that provides a comprehensive catalog of Islamic names, their meanings, and origins.
+A cross-platform application built with React Native and Expo that provides a comprehensive catalog of Islamic names and their meanings.
 
 ## Features
 
 - 📱 Cross-platform support (iOS, Android, Web)
 - 🌙 Dark/Light theme support with system preference detection
 - 🔍 Search functionality for names
-- 🎯 Filter names by gender and origin
+- 🎯 Filter names by gender
 - 📖 Detailed information for each name
 - 💫 Smooth animations and transitions
 - 🌐 Web-optimized interface
