@@ -164,17 +164,19 @@ const styles = StyleSheet.create({
   },
   filtersContainer: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center", // Center horizontally
+    alignItems: "center", // Center vertically
     marginBottom: 20,
   },
   filterBox: {
-    flex: 1,
-    marginHorizontal: 8,
+    width: "50%", // Fixed width
+    marginHorizontal: "auto", // Center horizontally
   },
   filterLabel: {
     fontSize: 16,
     fontWeight: "bold",
     marginBottom: 8,
+    textAlign: "center", // Center text
   },
   pickerContainer: {
     borderColor: "#ccc",
@@ -184,7 +186,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   picker: {
-    width: width * 0.4,
+    width: "100%", // Full width of the container
     height: 60, // Match container height
   },
   pickerItem: {
