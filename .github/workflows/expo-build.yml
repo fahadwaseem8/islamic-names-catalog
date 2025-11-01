@@ -52,24 +52,24 @@ jobs:
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
-      - name: Compute next build number
+      - name: Compute build number
         id: buildnum
         run: |
-          NEXT=$(( ${{ github.run_number }} + 1 ))
-          echo "next_build_number=$NEXT" >> $GITHUB_OUTPUT
+          BUILD_NUMBER=${{ github.run_number }}
+          echo "build_number=$BUILD_NUMBER" >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release
         id: create_release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v${{ steps.version.outputs.version }}-${{ steps.buildnum.outputs.next_build_number }}
-          name: "v${{ steps.version.outputs.version }} (${{ steps.buildnum.outputs.next_build_number }})"
+          tag_name: build-${{ steps.buildnum.outputs.build_number }}
+          name: "${{ steps.version.outputs.version }}"
           body: |
             Automated Expo APK build for commit:
             `${{ github.sha }}`
 
             **Version:** v${{ steps.version.outputs.version }}
-            **Build:** #${{ steps.buildnum.outputs.next_build_number }}
+            **Build:** #${{ steps.buildnum.outputs.build_number }}
           files: ${{ steps.download.outputs.apk_path }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
