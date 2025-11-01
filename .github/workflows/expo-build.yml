@@ -1,4 +1,4 @@
-name: Expo Android APK Build
+name: Expo Android APK Build and Release
 
 on:
   push:
@@ -26,6 +26,29 @@ jobs:
         run: npm install -g eas-cli
 
       - name: Build Android APK
-        run: eas build -p android --profile preview --non-interactive
+        id: build
+        run: |
+          eas build -p android --profile preview --non-interactive --json > build_output.json
+          cat build_output.json
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Download APK from EAS
+        id: download
+        run: |
+          DOWNLOAD_URL=$(cat build_output.json | jq -r '.[0].artifacts.buildUrl')
+          echo "Download URL: $DOWNLOAD_URL"
+          curl -L "$DOWNLOAD_URL" -o app-release.apk
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ github.run_number }}
+          name: "Build #${{ github.run_number }}"
+          body: "Automated Expo APK build for commit ${{ github.sha }}"
+          files: app-release.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
