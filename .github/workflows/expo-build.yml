@@ -69,7 +69,6 @@ jobs:
             `${{ github.sha }}`
 
             **Version:** v${{ steps.version.outputs.version }}
-            **Build:** #${{ steps.buildnum.outputs.build_number }}
           files: ${{ steps.download.outputs.apk_path }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
