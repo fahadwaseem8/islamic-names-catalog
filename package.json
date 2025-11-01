@@ -1,7 +1,7 @@
 {
   "name": "islamic-names-catalog",
   "main": "expo-router/entry",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
@@ -17,8 +17,8 @@
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",
     "@react-native-picker/picker": "2.11.1",
-    "@react-navigation/bottom-tabs": "^7.7.3",
-    "@react-navigation/native": "^7.1.19",
+    "@react-navigation/bottom-tabs": "^7.4.0",
+    "@react-navigation/native": "^7.1.8",
     "@react-navigation/stack": "^7.6.2",
     "expo": "~54.0.21",
     "expo-blur": "~15.0.7",
