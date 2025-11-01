@@ -41,12 +41,12 @@ jobs:
         run: |
           DOWNLOAD_URL=$(cat build_output.json | jq -r '.[0].artifacts.buildUrl')
           echo "Download URL: $DOWNLOAD_URL"
-          curl -L "$DOWNLOAD_URL" -o app-release.apk
-          echo "apk_path=app-release.apk" >> $GITHUB_OUTPUT
+          curl -L "$DOWNLOAD_URL" -o islamic-names-catalog.apk
+          echo "apk_path=islamic-names-catalog.apk" >> $GITHUB_OUTPUT
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
-      - name: Create or Update GitHub Release
+      - name: Create GitHub Release
         id: create_release
         uses: softprops/action-gh-release@v2
         with:
@@ -56,7 +56,5 @@ jobs:
             ✅ Automated Expo APK build for commit:
             `${{ github.sha }}`
           files: ${{ steps.download.outputs.apk_path }}
-          overwrite: true
-          make_latest: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
