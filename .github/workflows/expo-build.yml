@@ -10,23 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🏗 Setup repo
+      - name: Setup repo
         uses: actions/checkout@v4
 
-      - name: 🏗 Setup Node
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 22.x
           cache: npm
 
-      - name: 🏗 Setup EAS
+      - name: Setup EAS
         uses: expo/expo-github-action@v8
         with:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
-      - name: 📦 Install dependencies
+      - name: Install dependencies
         run: npm ci
 
-      - name: 🚀 Build Android APK
+      - name: Build Android APK
         run: npx eas build -p android --profile preview --non-interactive
