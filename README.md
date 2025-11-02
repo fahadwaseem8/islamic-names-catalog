@@ -2,6 +2,16 @@
 
 A cross-platform application built with React Native and Expo that provides a comprehensive catalog of Islamic names and their meanings.
 
+## Download
+
+### Official Release
+[![Get it on Google Play](https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.fahadw9.islamicnamescatalog)
+
+Download the official app from Google Play Store: [Islamic Names Catalog](https://play.google.com/store/apps/details?id=com.fahadw9.islamicnamescatalog)
+
+### Testing Builds
+For testing the latest features, download APK files from the [Releases](https://github.com/fahadwaseem8/islamic-names-catalog/releases) tab. Each commit to the `main` branch automatically generates a new Android APK build.
+
 ## Features
 
 - 📱 Cross-platform support (iOS, Android, Web)
@@ -20,40 +30,32 @@ A cross-platform application built with React Native and Expo that provides a co
 - [Expo Router](https://docs.expo.dev/router/introduction/)
 - TypeScript
 
-## Getting Started
+## Development
 
 ### Prerequisites
 
-- Node.js (v14 or newer)
-- npm or yarn
-- [Expo CLI](https://docs.expo.dev/workflow/expo-cli/)
+- Node.js v22 or newer
+- npm (package manager)
 
-### Installation
+### Setup
 
 1. Clone the repository
 
    ```bash
    git clone https://github.com/fahadwaseem8/islamic-names-catalog.git
+   cd islamic-names-catalog
    ```
 
 2. Install dependencies
 
    ```bash
    npm install
-   # or
-   yarn install
    ```
 
 3. Start the development server
    ```bash
-   npx expo start
+   npm start
    ```
-
-### Running the App
-
-- For iOS: Press `i` in the terminal or run on iOS simulator
-- For Android: Press `a` in the terminal or run on Android emulator
-- For Web: Press `w` in the terminal or visit `http://localhost:8081`
 
 ## Project Structure
 
@@ -63,15 +65,26 @@ islamic-names-catalog/
 │   ├── _layout.tsx        # Root layout component
 │   ├── index.tsx          # Home screen
 │   ├── name-list.tsx      # Names listing screen
-│   ├── name-detail.tsx    # Name details screen
-│   └── privacypolicy.tsx  # Privacy policy page (web only)
+│   └── name-detail.tsx    # Name details screen
 ├── components/            # Reusable components
+│   ├── NameCard.tsx      # Name card component
+│   └── NameDetailCard.tsx # Name detail card component
 ├── styles/               # Theme and styling
 ├── data/                 # Static data files
-└── assets/              # Images and other static assets
+├── assets/              # Images and other static assets
+└── .github/workflows/   # CI/CD automation
 ```
 
+## CI/CD
+
+This project uses GitHub Actions for continuous integration and deployment:
+- **Automatic Builds**: Every commit to the `main` branch triggers an Android APK build
+- **Release Publishing**: Built APKs are automatically published to the [Releases](https://github.com/fahadwaseem8/islamic-names-catalog/releases) tab
+- **Version Management**: Each build is tagged and versioned automatically
+
 ## Contributing
+
+Contributions are welcome! To contribute:
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -81,7 +94,7 @@ islamic-names-catalog/
 
 ## Privacy Policy
 
-Our privacy policy is available at `/privacypolicy` on the web version of the app. The application does not collect any personal information and functions completely offline.
+The application does not collect any personal information and functions completely offline. All data is stored locally on your device.
 
 ## License
 
